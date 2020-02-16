@@ -1,0 +1,209 @@
+// フォント
+body {
+  font-family: 'Verdana, Helvetica, Arial, sans-serif';
+}
+
+// メインカラー
+$sky: #40bfc1;
+$blue: #3a6daf;
+$orange: #ff6f5e;
+$white: #f5f0e3;
+
+//収入登録フォーム
+.income-overall {
+     position: relative;
+    margin: 5rem 0;
+    padding: 0 1rem .5rem;
+    border: solid 3px $sky;
+
+    .income-title {
+    position: absolute;
+    display: inline-block;
+    top: -42px;
+    left: -3px;
+    padding: 20px 20px;
+    height: 30px;
+    line-height: 5px;
+    font-size: 1.5rem;
+    background: $sky;
+    color: #ffffff;
+    font-weight: bold;
+    border-radius: 5px 5px 0 0;
+}
+
+    .form-group {
+        margin: 1rem auto 3rem;
+    }
+
+    .income-btn {
+        background: $sky;
+        color: #fff;
+    }
+}
+
+//収入編集ページ
+ $orange: #ff6f5e;
+
+.edit-overall {
+     position: relative;
+    margin: 5rem 0;
+    padding: 0.5em 1em;
+    border: solid 3px $orange;
+ 
+    .edit-title {
+    position: absolute;
+    display: inline-block;
+    top: -42px;
+    left: -3px;
+    padding: 20px 20px;
+    height: 30px;
+    line-height: 5px;
+    font-size: 1.5rem;
+    background: $orange;
+    color: #ffffff;
+    font-weight: bold;
+    border-radius: 5px 5px 0 0;
+    }
+    .form-group {
+        margin: 1.5rem auto;
+    }
+    .edit-btn {
+        background: $orange;
+        color: #fff;
+    }
+}
+
+//税金確認ページ(チェッカー)
+.tax-top {
+     border-bottom: solid 3px $orange;
+     text-align: center;
+}
+
+.explanation {
+    margin: 2rem auto;
+    text-align: center;
+    letter-spacing: .085rem;
+    font-size: 1.3rem;
+}
+
+.kabe-title {
+    text-align: center;
+    background-color: $orange;
+    color: #fff;
+    padding: 1rem 0;
+    h5 {
+        margin-bottom: 0;
+    }
+}
+  
+.card-header {
+    color: #fff;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.kabe-tax {
+    background-color: $white;
+    padding: 1rem 0;
+    margin-bottom: 1.3rem;
+    
+    .current {
+        padding: 1rem 0;
+        text-align: center;
+        font-size: 1.5rem;
+        letter-spacing: .1rem;
+    }
+  
+    .balance {
+      text-align:center;
+      .card-tax {
+        display: inline-block;
+        text-align: center;
+        width: 26%;
+        
+        .header-tax {
+            background-color: $blue;
+            margin-bottom: 0;
+           
+        }
+         
+        .body-tax {
+            font-size: .8rem;
+        }
+    }
+
+    .symbol {
+        text-align: center;
+        width: 7%;
+        font-size: 1.3rem;
+        display: inline-block;
+        padding-bottom: 2rem;
+    }
+  }
+  
+    .result-header {
+        color: #fff;
+        background-color: $sky;
+    }
+    
+    .message {
+        color: $orange;
+        font-size: 1.1rem;
+    }
+}
+
+.result-card {
+     margin: 0 auto;
+     width: 80%;
+}
+
+.link-income {
+    padding-bottom: 2rem;
+}
+
+//収入検索ページ
+.search-overall {
+    padding: 1rem;
+    margin: 3rem 0;
+    h1 {
+     font-weight: bold;  
+     padding: 2rem 0;
+    }
+    .engine {
+        padding-bottom: 2rem;
+        
+        .select-box {
+            margin-bottom: 1rem;
+        }
+        .search-btn {
+            
+            position: relative;
+            display: inline-block;
+            padding: 0.25em 0.5em;
+            text-decoration: none;
+            color: #fff;
+            border-radius: 4px;
+            box-shadow: inset 0 1px 0 rgba(255,255,255,0.2);
+            text-shadow: 0 1px 0 rgba(0,0,0,0.2);
+        }
+    }
+    
+    h3 {
+        font-size: 2rem;
+        font-weight: bold;
+        margin-bottom: 0;
+        padding-left: 1rem;
+    }
+}
+
+.blue-text {
+    color: $sky;
+}
+
+.blue-btn {
+    background-color: $sky;
+}
+
+.blue-border {
+        border: .1rem solid $blue;
+}

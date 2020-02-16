@@ -1,0 +1,41 @@
+<!--支出一覧のパーシャル-->
+    <table border=1>
+    <thead>
+        <tr class="expense-th">
+            <th>Date</th>
+            <th>Item</th>
+            <th>Expense</th>
+            <th>Place</th>
+            <th>Edit & Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% lists.each do |list| %>
+        <tr>
+            <td>
+                <%= list.date %>
+
+            </td>
+             <td>
+                <%= list.item_name %>
+            </td>
+             <td>
+                <span>¥</span><%= list.expense.to_s(:delimited) %>
+            </td>
+             <td>
+                <%= list.place %>
+            </td>
+            <td>
+                <%= link_to "Edit", edit_list_path(list), class: 'btn btn-primary btn-sm' %>
+                <%= link_to "Delete", list, method: :delete, data: { confirm: "Are you sure?"}, class: 'btn btn-danger btn-sm' %>
+            </td>
+        </tr>
+         <% end %>
+    </tbody>
+</table>
+ <div>
+        <p>Total Expense: ¥<%= expense_total %></p>
+    </div>
+        <%= paginate lists %>
+</div>
+

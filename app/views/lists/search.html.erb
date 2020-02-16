@@ -1,0 +1,18 @@
+<!--支出の検索ページ-->
+<div class="search-overall red-border">
+   <h1 class="red-text">Expense search</h1>
+    <div class="engine form-group">
+        <%= form_tag(lists_search_path, method: "get") do %>
+        <%= select_tag(:date, options_for_select(@date), :prompt => "All incomes", class: "select-box form-control")  %>
+        
+        <div class="search-btn red-btn">
+            <i class="fas fa-search-dollar"></i>
+            <%= submit_tag "Search", class: "btn search-btn" %>
+        </div>
+        
+        <% end %>
+    </div>
+    
+    <h3 class="red-text">Result</h3>
+            <%= render 'lists/lists', lists: @expenses, list: @list, expense_total: @expense_total %>
+</div>

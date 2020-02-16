@@ -1,0 +1,36 @@
+// フォント
+body {
+  font-family: 'Verdana, Helvetica, Arial, sans-serif';
+}
+
+//プロフィール変更ページ
+$blue: #3a6daf;
+
+.user-overall {
+     position: relative;
+    margin: 4rem 0;
+    padding: 0.5em 1em;
+    border: solid 3px $blue;
+ 
+    .user-title {
+    position: absolute;
+    display: inline-block;
+    top: -42px;
+    left: -3px;
+    padding: 20px 20px;
+    height: 30px;
+    line-height: 5px;
+    font-size: 1.5rem;
+    background: $blue;
+    color: #ffffff;
+    font-weight: bold;
+    border-radius: 5px 5px 0 0;
+}
+.form-group {
+    margin: 1.5rem auto;
+}
+.user-btn {
+    background: $blue;
+    color: #fff;
+}
+}

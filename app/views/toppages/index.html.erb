@@ -1,0 +1,253 @@
+<!--トップページ・支出一覧画面-->
+
+<% if logged_in? %>
+<!--ここに自分の情報を載せる-->
+<div class="row">
+    <div class="col-md-6">
+        <div class="date">
+    <h2><%= @d %></h2>
+</div>
+
+<div class="container text-center page-top">
+     <div class="goal">
+        <h3>GOAL</h3>
+        <h2><%= @goal %></h2>
+    </div>
+        <p class="name-total">Total</p>
+            <div class="card">
+                <p class="card-header income">Income</p>
+                <div class="card-body">
+                    <p class="card-text">¥<%= @income_total_str %></p>
+                </div>
+            </div>
+        <p class="symbol"><i class="fas fa-minus"></i></p>
+            <div class="card">
+                <p class="card-header expense">Expense</p>
+                <div class="card-body">
+                    <p class="card-text">¥<%= @expense_str %></p>
+                </div>
+            </div>
+        <p class="symbol"><i class="fas fa-equals"></i></p>
+            <div class="card">
+                <p class="card-header total">Balance</p>
+                <div class="card-body">
+                    <p class="card-text">¥<%= @total %></p>
+                </div>
+            </div>
+            
+        <p class="name-total"><%= @d.year %>(others)</p>
+            <div class="card">
+                <p class="card-header income">Income</p>
+                <div class="card-body">
+                    <p class="card-text">
+                        ¥<%= @income_year_now_str %><br>
+                        (¥<%= @income_year_now_oth_str %>)
+                    </p>
+                </div>
+            </div>
+        <p class="symbol"><i class="fas fa-minus"></i></p>
+            <div class="card">
+                <p class="card-header expense">Expense</p>
+                <div class="card-body">
+                    <p class="card-text">¥<%= @expense_year_str %>
+                    </p>
+                </div>
+            </div>
+        <p class="symbol"><i class="fas fa-equals"></i></p>
+            <div class="card">
+                <p class="card-header total">Balance</p>
+                <div class="card-body">
+                    <p class="card-text">¥<%= @result_now_oth %><br>
+                        (¥<%= @result_now %>)
+                    </p>
+                </div>
+            </div>
+            
+        <p class="name-total">Income <%= @d.year %>(others)</p>
+            <div class="card">
+                <p class="card-header income">Income</p>
+                <div class="card-body">
+                    <p class="card-text">
+                        ¥<%= @income_year_now_str %><br>
+                        (¥<%= @income_year_now_oth_str %>)
+                    </p>
+                </div>
+            </div>
+        <p class="symbol"><i class="fas fa-divide"></i></p>
+            <div class="card">
+                <p class="card-header income">Times</p>
+                <div class="card-body">
+                    <p class="card-text"><%= @income_count_now %><br>
+                    (<%= @income_count_now_oth %>)
+                    </p>
+                </div>
+            </div>
+        <p class="symbol"><i class="fas fa-equals"></i></p>
+            <div class="card">
+                <p class="card-header income">Average</p>
+                <div class="card-body">
+                    <p class="card-text">¥<%= @income_average_now %><br>
+                        (¥<%= @income_average_oth_now %>)
+                    </p>
+                </div>
+            </div>
+        
+        <p class="name-total">Expense <%= @d.year %></p>
+            <div class="card">
+                <p class="card-header expense">Expense</p>
+                <div class="card-body">
+                    <p class="card-text">¥<%= @expense_year_str %></p>
+                </div>
+            </div>
+        <p class="symbol"><i class="fas fa-divide"></i></p>
+            <div class="card">
+                <p class="card-header expense">Times</p>
+                <div class="card-body">
+                    <p class="card-text"><%= @expense_count_now %>
+                    </p>
+                </div>
+            </div>
+        <p class="symbol"><i class="fas fa-equals"></i></p>
+            <div class="card">
+                <p class="card-header expense">Average</p>
+                <div class="card-body">
+                    <p class="card-text">¥<%= @expense_average_now %></p>
+                </div>
+            </div>
+            
+    <p class="name-total">Average(others)</p>
+            <div class="card">
+                <p class="card-header income">Income</p>
+                <div class="card-body">
+                    <p class="card-text">¥<%= @all_income_average_oth_str %><br>
+                    (¥<%= @all_income_average_str %>)
+                    </p>
+                </div>
+            </div>
+        <p class="symbol"><i class="fas fa-minus"></i></p>
+            <div class="card">
+                <p class="card-header expense">Expense</p>
+                <div class="card-body">
+                    <p class="card-text">¥<%= @all_expense_average_str %> 
+                    </p>
+                </div>
+            </div>
+        <p class="symbol"><i class="fas fa-equals"></i></p>
+            <div class="card">
+                <p class="card-header total">Balance</p>
+                <div class="card-body">
+                    <p class="card-text">¥<%= @all_result_average_oth_str %><br>
+                    (¥<%= @all_result_average_str %>)
+                    </p>
+                </div>
+            </div> 
+        </div>
+    </div>
+    
+    <div class="col-md-6">
+        
+        <ul class="nav nav-tabs nav-justified">
+            <li class="nav-item">
+                <a href="<%= root_url %>" class="nav-link 
+                <%= 'active' if current_page?(root_url) %>">
+                    Expense List
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="<%= toppages_income_path %>" class="nav-link 
+                <%= 'active' if current_page?(toppages_income_path) %>">
+                    Income List
+                </a>
+            </li>
+        </ul>
+        <%= render 'lists/lists', lists: @expenses, list: @list, expense_total: @expense_total %>
+    </div>
+</div>
+
+<% else %>
+<div class="text-center toppage-overall">
+    <h1 class="top-title">Japanese Kakiebo</h1>
+    
+        
+    <div class="about">
+        <h4 class="title">機能・内容</h4>
+        
+
+        <ul class="list">
+            <table class="table-head" border=1>
+        <tr>
+            <td>クライアント</td>
+            <td>Web</td>
+        </tr>
+        <tr>
+            <td>技術(言語)</td>
+            <td>Ruby (Ruby on rails)</td>
+        </tr>
+        <tr>
+            <td>データベース言語</td>
+            <td>PostgreSQL</td>
+        </tr>
+        <tr>
+            <td>デプロイ環境</td>
+            <td>heroku</td>
+        </tr>
+        <tr>
+            <td>対象ユーザー層</td>
+            <td>英語学習中の学生・留学生</td>
+        </tr>
+    </table>
+            <li>英語でのみ収支登録</li>
+            <li>収入・支出のCRUD機能</li>
+            <li>税金の上限チェック(103/130万円の壁)</li>
+            <li>様々な支出・収入・収支の合計値・平均値</li>
+            <li>支出・収入の日付検索</li>
+            <li>簡易的なユーザー登録・編集・ログイン・ログアウト</li>
+        </ul>
+            
+        <h4 class="title">特徴</h4>
+        <div class="box">
+            <h5 class="box-title">英語で登録</h5>
+            <p>
+                自身が外語学生なので、日常的に英語のみで収支の登録できるよう制限をかけました。<br>
+                英語のため、留学生にも比較的利用しやすいようにしました。そのため、一部を除いて全て英語になっています。
+            </p>
+        </div>
+        
+        <div class="box">
+            <h5 class="box-title">税金の上限を簡単確認</h5>
+            <p>
+                多くの学生がアルバイト代で103万円を超えないように、家計簿に登録した収入から確認できるようにしました。
+                留学生も税金の制度は対象のため、簡単にわかるように工夫しています。
+            </p>
+        </div>
+        
+        <div class="box">
+            <h5 class="box-title">様々な合計値・平均値・収支の検索機能</h5>
+            <p>
+                自分が一回でどれぐらい支出しているのか色々な平均値や合計を知りたかったので算出しました。
+                また、検索機能で登録した日の内容を見れるようにしています。
+            </p>
+        </div>
+        
+        
+    </div>
+        
+    <h4 class="title">使用方法</h4>
+    <p>
+        ログイン前:
+        ユーザー作成 → ログイン
+    </p>
+    <p>
+        ログイン後:
+        収支・平均値等の一覧
+        収支の登録・税金チェッカー・収支の検索機能・ログアウト
+    </p>
+        
+    <div class="caution">
+        <h4 class="title">注意点</h4>
+        <p>
+            英語を使用する人に限定しているため、使う際は基本的に英語と数字でのみ登録可能
+        </p>
+    </div>
+</div>
+<% end %>

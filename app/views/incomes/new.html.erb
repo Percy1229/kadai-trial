@@ -1,0 +1,38 @@
+<!--収入を登録する画面-->
+<div class="income-overall">
+    <span class="income-title">Income</span>
+    　
+<%= form_with(model: @income, local: true) do |f| %>
+<%= render 'layouts/error_messages', model: f.object %>
+
+<div class="form-group">
+    <i class="far fa-calendar-alt"></i>
+    <%= f.label :date, 'Date' %>
+    <%= f.date_select :date, class: 'form-control'%>
+</div>
+
+<div class="form-group">
+    <i class="fas fa-donate"></i>
+    <%= f.label :source, 'Source of Income' %>
+    <%= f.select :source, 
+    [["Part-time job", "parttime"], 
+    ["Internship", "internship"], 
+    ["Volunteer", "volunteer"], 
+    ["others", "others"]], 
+    :prompt => "Select Your source of income" %>
+</div>
+
+<div class="form-group">
+    <i class="fas fa-coins"></i>
+    <%= f.label :income, 'Income' %>
+    <%= f.text_field :income, class: 'form-control', placeholder: "Only number" %>
+</div>
+
+<%= f.submit 'POST', class: 'btn button btn-block income-btn' %>
+
+<% end %>
+</div>
+
+
+
+

@@ -1,0 +1,114 @@
+<!--学生が収入が税金を超えているかの確認する画面-->
+<h2 class="tax-top">Tax Checker in <%= @d.year %> for students</h2>
+
+<p class="explanation">
+    Japanese Gorvernment lavies taxes on students when their incomes get over 1,030,000 yen / 1,30,000 yen.<br>
+    This checker helps students to prevent their incomes from the upper limit.
+</p>
+
+<div class="row">
+    <div class="col-md-6">
+        <div class="kabe-title">
+    <h4>¥ 1,030,000の壁</4>
+    <h5>(¥ 1,030,000 No Kabe)</h5>
+</div>
+<div class="kabe-tax">
+    <h5 class="current"><%= @user %>'s current balance</h5>
+    <div class="balance">
+    <div class="card card-tax">
+  <div class="card-header header-tax">
+    Limit
+  </div>
+  <div class="card-body body-tax">
+    <p class="card-text">¥ 1,030, 000</p>
+ </div>
+ </div>
+ 
+ <p class="symbol"><i class="fas fa-minus"></i></p>
+ 
+ <div class="card card-tax">
+  <div class="card-header header-tax">
+    Income
+  </div>
+  <div class="card-body body-tax">
+    <p class="card-text">¥<%= @total_str %></p>
+ </div>
+ </div>
+ 
+ <p class="symbol"><i class="fas fa-equals"></i></p>
+ 
+ <div class="card card-tax">
+  <div class="card-header header-tax">
+    Balance
+  </div>
+  <div class="card-body body-tax">
+    <p class="card-text">¥<%= @result_with_period %></p>
+ </div>
+ </div>
+</div>
+
+  
+  <div class="card result-card">
+  <div class="card-header result-header">
+    Result
+  </div>
+  <div class="card-body body-tax">
+    <p class="card-text message"><%= @message %></p>
+ </div>
+ </div>
+</div>
+    </div>
+    <div class="col-md-6">
+        <div class="kabe-title">
+    <h4>¥ 1,300,000の壁</4>
+    <h5>(¥ 1,300,000 No Kabe)</h5>
+</div>
+<div class="kabe-tax">
+    <h5 class="current"><%= @user %>'s current balance</h5>
+    <div class="balance">
+    <div class="card card-tax">
+  <div class="card-header header-tax">
+    Limit
+  </div>
+  <div class="card-body body-tax">
+    <p class="card-text">¥ 1,300, 000</p>
+ </div>
+ </div>
+ 
+ <p class="symbol"><i class="fas fa-minus"></i></p>
+ 
+ <div class="card card-tax">
+  <div class="card-header header-tax">
+    Income
+  </div>
+  <div class="card-body body-tax">
+    <p class="card-text">¥<%= @total_str %></p>
+ </div>
+ </div>
+ 
+ <p class="symbol"><i class="fas fa-equals"></i></p>
+ 
+ <div class="card card-tax">
+  <div class="card-header header-tax">
+    Balance
+  </div>
+  <div class="card-body body-tax">
+    <p class="card-text">¥<%= @result_130_with_period %></p>
+ </div>
+ </div>
+</div>
+
+  
+  <div class="card result-card">
+  <div class="card-header result-header">
+    Result
+  </div>
+  <div class="card-body body-tax">
+    <p class="card-text message"><%= @message_130 %></p>
+ </div>
+ </div>
+</div>
+    </div>
+</div>
+
+<%= link_to "Register more income", new_income_path, class: "link-income" %>

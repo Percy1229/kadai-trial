@@ -1,0 +1,50 @@
+<!--費用の編集ページ-->
+
+<div class="edit-overall">
+    <span class="edit-title">Edit Expense</span>
+    <%= form_with(model: @list, local: true) do |f| %>
+<%= render 'layouts/error_messages', model: f.object %>
+
+<div class="form-group">
+    <%= f.label :date, 'Date' %>
+    <%= f.date_select :date, class: 'form-control'%>
+</div>
+
+<div class="form-group">
+    <%= f.label :item_name, 'Item' %>
+    <%= f.text_field :item_name, class: 'form-control'%>
+</div>
+
+<div class="form-group">
+    <%= f.label :category, 'Category' %>
+    <%= f.select :category, 
+    [["Unclassifed", "unclassifed"],
+    ["Utensil", "utensil"],
+    ["Utility(water/heat)", "utility"],
+    ["Hobby", "hobby"],
+    ["Entertainment", "entertainment"],
+    ["Transportation", "transportation"], 
+    ["Fashion", "fashion"], 
+    ["Food", "food"], 
+    ["Phone", "phone"], 
+    ["Others", "others"]], 
+    :prompt => "Select category" %>
+</div>
+
+<div class="form-group">
+    <%= f.label :expense, 'Expense' %>
+    <%= f.number_field :expense, class: 'form-control', placeholder: 'Enter your expense' %>
+</div>
+
+<div class="form-group">
+    <%= f.label :place, 'Place' %>
+    <%= f.text_field :place, class: 'form-control', placeholder: 'Enter place' %>
+</div>
+
+<%= f.submit 'EDIT', class: 'btn button btn-block edit-btn' %>
+
+<% end %>
+
+</div>
+
+

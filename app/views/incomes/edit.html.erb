@@ -1,0 +1,30 @@
+<!--収入を編集するページ-->
+<div class="edit-overall">
+    <span class="edit-title">Edit Income</span>
+    <%= form_with(model: @income, local: true) do |f| %>
+<%= render 'layouts/error_messages', model: f.object %>
+
+<div class="form-group">
+    <%= f.label :date, 'Date' %>
+    <%= f.date_select :date, class: 'form-control'%>
+</div>
+
+<div class="form-group">
+    <%= f.label :source, 'Source of Income' %>
+    <%= f.select :source, [["Part-time job", "parttime"], ["Internship", "internship"], ["Volunteer", "volunteer"], ["Others", "others"]], :prompt => "Select Your source of income" %>
+</div>
+
+<div class="form-group">
+    <%= f.label :income, 'Income' %>
+    <%= f.text_field :income, class: 'form-control'%>
+</div>
+
+<%= f.submit 'EDIT', class: 'btn button btn-block edit-btn' %>
+
+<% end %>
+    
+</div>
+
+
+
+
